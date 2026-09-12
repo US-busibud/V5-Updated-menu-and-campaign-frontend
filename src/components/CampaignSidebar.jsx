@@ -41,7 +41,6 @@ const CampaignSidebar = ({ selectedWorksheet, onSelectWorksheet }) => {
   };
 
   return (
-    // FIX 1: Added overflow-x-hidden to prevent the whole sidebar from scrolling left/right
     <div className="w-80 h-screen bg-[#F8F9FA] border-r border-gray-200 flex flex-col flex-shrink-0 overflow-x-hidden">
       
       <div className="flex p-2 gap-1 border-b border-gray-200 bg-white">
@@ -71,7 +70,26 @@ const CampaignSidebar = ({ selectedWorksheet, onSelectWorksheet }) => {
           {!selectedMetric ? (
             <>
               <div className="relative">
-                <button onClick={() => setIsDropdownOpen(!isDropdownOpen)} className="w-full text-left bg-white border border-gray-300 rounded-md px-3 py-1.5 text-sm flex justify-between items-center hover:border-gray-400">{selectedTime} ▾</button>
+                <button 
+                  onClick={() => setIsDropdownOpen(!isDropdownOpen)} 
+                  className="w-full text-left bg-white border border-gray-300 rounded-md px-3 py-1.5 text-sm flex justify-between items-center hover:border-gray-400"
+                >
+                  {selectedTime} ▾
+                </button>
+                
+                {isDropdownOpen && (
+                  <div className="absolute z-20 w-full mt-1 bg-white border border-gray-200 rounded-md shadow-lg">
+                    {timeOptions.map((option) => (
+                      <div 
+                        key={option} 
+                        onClick={() => { setSelectedTime(option); setIsDropdownOpen(false); }} 
+                        className="px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 cursor-pointer"
+                      >
+                        {option}
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
               <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
                 <h3 className="text-blue-600 text-[11px] font-medium">Reply percentage</h3>
