@@ -3,7 +3,6 @@ import CampaignSidebar from './components/CampaignSidebar';
 import MainTable from './components/MainTable';
 
 function App() {
-  // Ye state list item ki click ko track karegi
   const [selectedWorksheet, setSelectedWorksheet] = useState(null);
 
   return (
@@ -15,13 +14,13 @@ function App() {
          <div className="mt-auto w-8 h-8 rounded-full bg-gray-400"></div> 
       </div>
 
-      {/* 2. Secondary Sidebar (Yahan hum props pass kar rahe hain) */}
+      {/* 2. Secondary Sidebar */}
       <CampaignSidebar 
         selectedWorksheet={selectedWorksheet} 
         onSelectWorksheet={setSelectedWorksheet} 
       />
       
-      {/* 3. Main Content Area (Yahan selected data bhej rahe hain) */}
+      {/* 3. Main Content Area */}
       <MainTable selectedWorksheet={selectedWorksheet} />
 
     </div>
