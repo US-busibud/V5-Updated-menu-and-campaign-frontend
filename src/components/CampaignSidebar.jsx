@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import StatCard from './StatCard';
+import { Settings, Volume2 } from 'lucide-react';
+import { PiTableBold } from "react-icons/pi";
 
 const CampaignSidebar = ({ selectedWorksheet, onSelectWorksheet, activeView, setActiveView }) => {
   const [activeTab, setActiveTab] = useState('analytics');
@@ -43,28 +45,35 @@ const CampaignSidebar = ({ selectedWorksheet, onSelectWorksheet, activeView, set
         <div className="flex flex-col items-center w-full">
           <div className="w-8 h-8 rounded-full bg-gray-200 border border-gray-300 mb-8"></div>
           
-          {/* 3 ICONS STRIP */}
+          {/* 3 ICONS STRIP (USING LUCIDE REACT ICONS) */}
           <div className="flex flex-col gap-4 items-center w-full">
+            
             <button 
               onClick={() => setActiveView('worksheet')}
-              className={`w-8 h-8 rounded-md flex items-center justify-center transition-colors ${activeView === 'worksheet' ? 'bg-pink-100 ring-1 ring-pink-300' : 'hover:bg-gray-100'}`}
+              className={`w-9 h-9 rounded-lg flex items-center justify-center transition-all ${activeView === 'worksheet' ? 'bg-blue-50' : 'hover:bg-gray-100'}`}
+              title="Worksheet"
             >
-              <div className="w-3.5 h-3.5 bg-pink-500 rounded-sm"></div>
+              <PiTableBold  className="w-5 h-5 text-pink-500 fill-pink-500" />
             </button>
 
+            {/* Icon 2: Megaphone (Campaigns) */}
             <button 
               onClick={() => setActiveView('blank1')}
-              className={`w-8 h-8 rounded-md flex items-center justify-center transition-colors ${activeView === 'blank1' ? 'bg-blue-50 text-blue-600' : 'text-gray-500 hover:bg-gray-100'}`}
+              className={`w-9 h-9 rounded-lg flex items-center justify-center transition-all ${activeView === 'blank1' ? 'bg-blue-50 text-blue-600' : 'text-gray-400 hover:bg-gray-100 hover:text-gray-600'}`}
+              title="Campaigns"
             >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"></path></svg>
+              <Volume2 className="w-5 h-5" />
             </button>
 
+            {/* Icon 3: Settings (Gear) */}
             <button 
               onClick={() => setActiveView('blank2')}
-              className={`w-8 h-8 rounded-md flex items-center justify-center transition-colors ${activeView === 'blank2' ? 'bg-blue-50 text-blue-600' : 'text-gray-500 hover:bg-gray-100'}`}
+              className={`w-9 h-9 rounded-lg flex items-center justify-center transition-all ${activeView === 'blank2' ? 'bg-blue-50 text-blue-600' : 'text-gray-400 hover:bg-gray-100 hover:text-gray-600'}`}
+              title="Settings"
             >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+              <Settings className="w-5 h-5" />
             </button>
+            
           </div>
         </div>
 
