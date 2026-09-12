@@ -162,7 +162,6 @@ const CampaignSidebar = ({ selectedWorksheet, onSelectWorksheet, activeView, set
                               </div>
                               <div className="text-[11px] text-gray-500 mt-1">User name: <span className="font-medium text-gray-800">{item.user}</span></div>
                               <div className="text-[11px] text-gray-500 mb-2.5">Email: <span className="font-medium text-gray-800">{item.email}</span></div>
-                              <button onClick={(e) => { e.stopPropagation(); window.open('#ticket-url', '_blank'); }} className="border border-blue-400 text-blue-500 hover:bg-blue-50 transition-colors rounded-full px-3 py-1 text-[10px] font-medium">View conversation</button>
                             </div>
                           );
                         })
